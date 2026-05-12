@@ -1,0 +1,164 @@
+<mxfile host="app.diagrams.net" modified="2026-05-11T13:45:00.000Z" agent="draw.io" version="21.0.0">
+  <diagram name="Operational Dependency &amp; Ownership" id="ops-dep">
+    <mxGraphModel dx="2800" dy="2400" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3200" pageHeight="2400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- ===== TITLE ===== -->
+        <mxCell id="title" value="Migration Operational Dependency &amp; Ownership Map&#xa;Phases flow left → right | Outputs become Inputs of next phase" style="text;fontSize=18;fontStyle=1;align=center;verticalAlign=middle;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="600" y="10" width="1600" height="40" as="geometry" />
+        </mxCell>
+        <!-- ===== PHASE 1: FOUNDATION ===== -->
+        <mxCell id="p1" value="PHASE 1: Foundation Services" style="swimlane;startSize=35;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="70" width="700" height="900" as="geometry" />
+        </mxCell>
+        <!-- Phase 1 Prerequisites (non-technical + technical) -->
+        <mxCell id="p1_pre" value="PRE-REQUISITES&#xa;─────────────────&#xa;✓ AWS Landing Zone provisioned&#xa;✓ Network connectivity (VPN/DX) established&#xa;✓ IAM roles &amp; security baseline&#xa;✓ Cloud team training complete&#xa;✓ DR strategy approved&#xa;✓ Data classification complete" style="shape=note;size=15;whiteSpace=wrap;fillColor=#FFF3E0;strokeColor=#E65100;fontSize=10;align=left;spacingLeft=8;" vertex="1" parent="p1">
+          <mxGeometry x="20" y="50" width="280" height="140" as="geometry" />
+        </mxCell>
+        <!-- Phase 1 Apps -->
+        <mxCell id="p1_app010" value="APP-010 Master Data Mgmt&#xa;Owner: Data &amp; Analytics&#xa;Criticality: CRITICAL | Tier 1" style="rounded=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="p1">
+          <mxGeometry x="20" y="220" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_app007" value="APP-007 Customer Data Platform&#xa;Owner: Data &amp; Analytics&#xa;Criticality: CRITICAL | Tier 1" style="rounded=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="p1">
+          <mxGeometry x="20" y="300" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_app019" value="APP-019 Big Data Ingestion Pipeline&#xa;Owner: Big Data Engineering&#xa;Criticality: HIGH | Tier 2" style="rounded=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="p1">
+          <mxGeometry x="20" y="380" width="300" height="60" as="geometry" />
+        </mxCell>
+        <!-- Phase 1 Outputs -->
+        <mxCell id="p1_out" value="OUTPUTS → (Inputs to Phase 2)&#xa;─────────────────────────&#xa;✓ MDM APIs available &amp; validated&#xa;✓ CDP event streams live on AWS&#xa;✓ Big Data pipeline ingesting to S3/EMR&#xa;✓ Oracle 19c migrated to RDS&#xa;✓ Cassandra migrated to Keyspaces&#xa;✓ Kafka topics replicated&#xa;✓ Data quality baseline established&#xa;✓ Monitoring &amp; alerting operational" style="shape=note;size=15;whiteSpace=wrap;fillColor=#E8F5E9;strokeColor=#2E7D32;fontSize=10;align=left;spacingLeft=8;" vertex="1" parent="p1">
+          <mxGeometry x="20" y="480" width="320" height="160" as="geometry" />
+        </mxCell>
+        <!-- Phase 1 Ownership summary -->
+        <mxCell id="p1_own" value="OWNERSHIP&#xa;──────────&#xa;Lead: Data &amp; Analytics&#xa;Support: Big Data Engineering&#xa;Infra: Database Administration&#xa;Gate Approver: Data Governance" style="shape=hexagon;perimeter=hexagonPerimeter2;size=0.1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#82b366;fontSize=10;align=left;spacingLeft=8;" vertex="1" parent="p1">
+          <mxGeometry x="370" y="220" width="280" height="120" as="geometry" />
+        </mxCell>
+        <!-- ===== PHASE 2: CORE BUSINESS ===== -->
+        <mxCell id="p2" value="PHASE 2: Core Business Applications" style="swimlane;startSize=35;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="70" width="700" height="900" as="geometry" />
+        </mxCell>
+        <!-- Phase 2 Prerequisites -->
+        <mxCell id="p2_pre" value="PRE-REQUISITES (from Phase 1)&#xa;──────────────────────────&#xa;✓ MDM APIs validated &amp; performant&#xa;✓ CDP event streams operational&#xa;✓ Big Data pipeline stable on AWS&#xa;✓ Oracle 19c / Cassandra migrated&#xa;✓ Kafka replication confirmed&#xa;✓ Performance baseline met&#xa;✓ Business sign-off on data integrity" style="shape=note;size=15;whiteSpace=wrap;fillColor=#FFF3E0;strokeColor=#E65100;fontSize=10;align=left;spacingLeft=8;" vertex="1" parent="p2">
+          <mxGeometry x="20" y="50" width="300" height="150" as="geometry" />
+        </mxCell>
+        <!-- Phase 2 Apps -->
+        <mxCell id="p2_app001" value="APP-001 E-Commerce Platform&#xa;Owner: Digital Products&#xa;Criticality: CRITICAL | Tier 1" style="rounded=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="p2">
+          <mxGeometry x="20" y="230" width="300" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_app002" value="APP-002 Loyalty &amp; Rewards Engine&#xa;Owner: Digital Products&#xa;Criticality: CRITICAL | Tier 1" style="rounded=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="p2">
+          <mxGeometry x="20" y="300" width="300" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_app003" value="APP-003 Demand Planning &amp; Forecasting&#xa;Owner: Supply Chain Technology&#xa;Criticality: CRITICAL | Tier 1" style="rounded=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="p2">
+          <mxGeometry x="20" y="370" width="300" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_app005" value="APP-005 Trade Promotion Management&#xa;Owner: Finance Technology&#xa;Criticality: HIGH | Tier 2" style="rounded=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="p2">
+          <mxGeometry x="20" y="440" width="300" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_app008" value="APP-008 Retail Analytics &amp; Reporting&#xa;Owner: Data &amp; Analytics&#xa;Criticality: HIGH | Tier 2" style="rounded=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="p2">
+          <mxGeometry x="20" y="510" width="300" height="55" as="geometry" />
+        </mxCell>
+        <!-- Phase 2 Outputs -->
+        <mxCell id="p2_out" value="OUTPUTS → (Inputs to Phase 3)&#xa;─────────────────────────&#xa;✓ E-Commerce on AWS (ECS/RDS)&#xa;✓ Loyalty microservices on EKS&#xa;✓ Demand Planning on EMR/Airflow&#xa;✓ Trade Promo APIs migrated&#xa;✓ Analytics on EMR + S3 data lake&#xa;✓ PostgreSQL 14/15 on RDS&#xa;✓ Integration tests passed&#xa;✓ Load testing signed off&#xa;✓ Runbook &amp; incident process live" style="shape=note;size=15;whiteSpace=wrap;fillColor=#E3F2FD;strokeColor=#1565C0;fontSize=10;align=left;spacingLeft=8;" vertex="1" parent="p2">
+          <mxGeometry x="20" y="600" width="320" height="170" as="geometry" />
+        </mxCell>
+        <!-- Phase 2 Ownership -->
+        <mxCell id="p2_own" value="OWNERSHIP&#xa;──────────&#xa;Lead: Digital Products&#xa;Support: Finance Technology,&#xa;  Supply Chain Technology,&#xa;  Data &amp; Analytics&#xa;Infra: Database Administration,&#xa;  Web Operations&#xa;Gate Approver: Digital Commerce" style="shape=hexagon;perimeter=hexagonPerimeter2;size=0.1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#6c8ebf;fontSize=10;align=left;spacingLeft=8;" vertex="1" parent="p2">
+          <mxGeometry x="370" y="230" width="280" height="150" as="geometry" />
+        </mxCell>
+        <!-- ===== FLOW ARROW Phase 1 → Phase 2 ===== -->
+        <mxCell id="flow12" value="Outputs become&#xa;Inputs" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=3;fontSize=10;fontStyle=1;labelBackgroundColor=#ffffff;" edge="1" source="p1_out" target="p2_pre" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- ===== PHASE 3: DEPENDENT ===== -->
+        <mxCell id="p3" value="PHASE 3: Dependent Applications" style="swimlane;startSize=35;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="70" width="700" height="900" as="geometry" />
+        </mxCell>
+        <!-- Phase 3 Prerequisites -->
+        <mxCell id="p3_pre" value="PRE-REQUISITES (from Phase 2)&#xa;──────────────────────────&#xa;✓ E-Commerce APIs stable on AWS&#xa;✓ Loyalty event bus operational&#xa;✓ Analytics data lake accessible&#xa;✓ Trade Promo Kafka streams live&#xa;✓ Load test results accepted&#xa;✓ Incident management proven&#xa;✓ Team cross-training complete" style="shape=note;size=15;whiteSpace=wrap;fillColor=#FFF3E0;strokeColor=#E65100;fontSize=10;align=left;spacingLeft=8;" vertex="1" parent="p3">
+          <mxGeometry x="20" y="50" width="300" height="140" as="geometry" />
+        </mxCell>
+        <!-- Phase 3 Apps -->
+        <mxCell id="p3_app006" value="APP-006 Product Lifecycle Mgmt&#xa;Owner: Product Technology&#xa;Criticality: HIGH | Tier 2" style="rounded=1;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="p3">
+          <mxGeometry x="20" y="220" width="280" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_app011" value="APP-011 Financial Planning &amp; Analysis&#xa;Owner: Finance Technology&#xa;Criticality: HIGH | Tier 2" style="rounded=1;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="p3">
+          <mxGeometry x="20" y="285" width="280" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_app012" value="APP-012 Inventory Optimisation&#xa;Owner: Supply Chain Technology&#xa;Criticality: HIGH | Tier 2" style="rounded=1;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="p3">
+          <mxGeometry x="20" y="350" width="280" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_app013" value="APP-013 Quality Management&#xa;Owner: Product Technology&#xa;Criticality: MEDIUM | Tier 3" style="rounded=1;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="p3">
+          <mxGeometry x="20" y="415" width="280" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_app014" value="APP-014 Procurement Portal&#xa;Owner: Procurement Technology&#xa;Criticality: MEDIUM | Tier 3" style="rounded=1;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="p3">
+          <mxGeometry x="20" y="480" width="280" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_app016" value="APP-016 Store Operations Dashboard&#xa;Owner: Digital Products&#xa;Criticality: LOW | Tier 3" style="rounded=1;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="p3">
+          <mxGeometry x="20" y="545" width="280" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="p3_app020" value="APP-020 Pricing Optimisation&#xa;Owner: Finance Technology&#xa;Criticality: HIGH | Tier 2" style="rounded=1;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="p3">
+          <mxGeometry x="20" y="610" width="280" height="50" as="geometry" />
+        </mxCell>
+        <!-- Phase 3 Outputs -->
+        <mxCell id="p3_out" value="OUTPUTS → (Inputs to Phase 4)&#xa;─────────────────────────&#xa;✓ PLM on AWS (RDS SQL Server)&#xa;✓ FP&amp;A batch jobs on AWS Batch&#xa;✓ Inventory engine on ECS/RDS&#xa;✓ All Tier 2/3 apps migrated&#xa;✓ Legacy interface adapters built&#xa;  (SOAP→REST wrappers for Phase 4)&#xa;✓ Regression suite green&#xa;✓ Cost optimisation review done" style="shape=note;size=15;whiteSpace=wrap;fillColor=#FFFDE7;strokeColor=#F9A825;fontSize=10;align=left;spacingLeft=8;" vertex="1" parent="p3">
+          <mxGeometry x="20" y="690" width="320" height="160" as="geometry" />
+        </mxCell>
+        <!-- Phase 3 Ownership -->
+        <mxCell id="p3_own" value="OWNERSHIP&#xa;──────────&#xa;Lead: Product Technology&#xa;Support: Finance Technology,&#xa;  Supply Chain Technology,&#xa;  Procurement Technology,&#xa;  Digital Products&#xa;Infra: Database Administration&#xa;Gate Approver: CTO Office" style="shape=hexagon;perimeter=hexagonPerimeter2;size=0.1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#d6b656;fontSize=10;align=left;spacingLeft=8;" vertex="1" parent="p3">
+          <mxGeometry x="370" y="220" width="280" height="150" as="geometry" />
+        </mxCell>
+        <!-- ===== FLOW ARROW Phase 2 → Phase 3 ===== -->
+        <mxCell id="flow23" value="Outputs become&#xa;Inputs" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=3;fontSize=10;fontStyle=1;labelBackgroundColor=#ffffff;" edge="1" source="p2_out" target="p3_pre" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- ===== PHASE 4: LEGACY / MODERNISE ===== -->
+        <mxCell id="p4" value="PHASE 4: Legacy — Modernise / Replace" style="swimlane;startSize=35;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="2320" y="70" width="700" height="900" as="geometry" />
+        </mxCell>
+        <!-- Phase 4 Prerequisites -->
+        <mxCell id="p4_pre" value="PRE-REQUISITES (from Phase 3)&#xa;──────────────────────────&#xa;✓ SOAP→REST adapters deployed&#xa;✓ PLM &amp; Inventory on AWS&#xa;✓ Legacy DB upgrade path agreed&#xa;  (Oracle 12c→19c, MySQL 5.7→8)&#xa;✓ Vendor contracts reviewed&#xa;✓ Modernisation patterns selected&#xa;  (Strangler Fig / Rewrite)&#xa;✓ Budget approved for refactoring&#xa;✓ Decommission plan signed off" style="shape=note;size=15;whiteSpace=wrap;fillColor=#FFF3E0;strokeColor=#E65100;fontSize=10;align=left;spacingLeft=8;" vertex="1" parent="p4">
+          <mxGeometry x="20" y="50" width="310" height="170" as="geometry" />
+        </mxCell>
+        <!-- Phase 4 Apps -->
+        <mxCell id="p4_app004" value="APP-004 Warehouse Management ⚠️&#xa;Owner: Supply Chain Technology&#xa;7R: REFACTOR | Java 8→17" style="rounded=1;whiteSpace=wrap;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="p4">
+          <mxGeometry x="20" y="250" width="300" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_app009" value="APP-009 Transportation Mgmt ⚠️&#xa;Owner: Supply Chain Technology&#xa;7R: REPLACE | Java 7 EOL" style="rounded=1;whiteSpace=wrap;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="p4">
+          <mxGeometry x="20" y="320" width="300" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_app015" value="APP-015 Manufacturing Execution ⚠️&#xa;Owner: Manufacturing Technology&#xa;7R: REPLATFORM | VB.NET 4.8" style="rounded=1;whiteSpace=wrap;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="p4">
+          <mxGeometry x="20" y="390" width="300" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_app017" value="APP-017 HR &amp; Workforce ⚠️&#xa;Owner: HR Technology&#xa;7R: REPLACE | ASP.NET 4.8 EOL" style="rounded=1;whiteSpace=wrap;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="p4">
+          <mxGeometry x="20" y="460" width="300" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="p4_app018" value="APP-018 Document Management&#xa;Owner: Operations Technology&#xa;7R: RETIRE | Low criticality" style="rounded=1;whiteSpace=wrap;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="p4">
+          <mxGeometry x="20" y="530" width="300" height="55" as="geometry" />
+        </mxCell>
+        <!-- Phase 4 Outputs (Final) -->
+        <mxCell id="p4_out" value="FINAL OUTCOMES&#xa;─────────────────────────&#xa;✓ All apps on AWS or replaced&#xa;✓ Legacy DBs decommissioned&#xa;✓ On-prem infrastructure retired&#xa;✓ 44% annual cost reduction achieved&#xa;✓ Full DR capability validated&#xa;✓ Operations team fully autonomous&#xa;✓ Hypercare period complete" style="shape=note;size=15;whiteSpace=wrap;fillColor=#FFEBEE;strokeColor=#C62828;fontSize=10;align=left;spacingLeft=8;" vertex="1" parent="p4">
+          <mxGeometry x="20" y="620" width="320" height="150" as="geometry" />
+        </mxCell>
+        <!-- Phase 4 Ownership -->
+        <mxCell id="p4_own" value="OWNERSHIP&#xa;──────────&#xa;Lead: Supply Chain Technology&#xa;Support: Manufacturing Tech,&#xa;  HR Technology,&#xa;  Operations Technology&#xa;Infra: Database Administration,&#xa;  Platform Engineering&#xa;Gate Approver: CIO" style="shape=hexagon;perimeter=hexagonPerimeter2;size=0.1;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#b85450;fontSize=10;align=left;spacingLeft=8;" vertex="1" parent="p4">
+          <mxGeometry x="370" y="250" width="280" height="150" as="geometry" />
+        </mxCell>
+        <!-- ===== FLOW ARROW Phase 3 → Phase 4 ===== -->
+        <mxCell id="flow34" value="Outputs become&#xa;Inputs" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=3;fontSize=10;fontStyle=1;labelBackgroundColor=#ffffff;" edge="1" source="p3_out" target="p4_pre" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- ===== LEGEND ===== -->
+        <mxCell id="legend" value="LEGEND" style="swimlane;startSize=25;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1000" width="600" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_note1" value="🟠 Orange notes = Pre-requisites / Gates" style="text;fontSize=10;fillColor=none;strokeColor=none;" vertex="1" parent="legend">
+          <mxGeometry x="10" y="30" width="280" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_note2" value="🟢 Green/Blue/Yellow/Red notes = Phase Outputs (become next phase inputs)" style="text;fontSize=10;fillColor=none;strokeColor=none;" vertex="1" parent="legend">
+          <mxGeometry x="10" y="55" width="450" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_note3" value="⬡ Hexagons = Ownership &amp; Accountability" style="text;fontSize=10;fillColor=none;strokeColor=none;" vertex="1" parent="legend">
+          <mxGeometry x="10" y="80" width="280" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_note4" value="→ Bold arrows = Output-to-Input dependency flow between phases" style="text;fontSize=10;fillColor=none;strokeColor=none;" vertex="1" parent="legend">
+          <mxGeometry x="10" y="105" width="400" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

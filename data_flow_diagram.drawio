@@ -1,0 +1,288 @@
+<mxfile host="app.diagrams.net" modified="2026-05-11T13:32:00.000Z" agent="draw.io" version="21.0.0">
+  <diagram name="Data Dependencies &amp; Application Flow" id="data-flow">
+    <mxGraphModel dx="2400" dy="2000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2800" pageHeight="2200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- ===== DATA STORES LAYER (Bottom) ===== -->
+        <mxCell id="ds_group" value="DATA STORES" style="swimlane;startSize=30;fillColor=#f5f5f5;strokeColor=#666666;fontSize=16;fontStyle=1;swimlaneLine=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1500" width="2720" height="280" as="geometry" />
+        </mxCell>
+        <!-- RDBMS -->
+        <mxCell id="db_pg14" value="PostgreSQL 14&#xa;(E-Commerce, Analytics)" style="shape=cylinder3;size=15;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="ds_group">
+          <mxGeometry x="40" y="50" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="db_pg15" value="PostgreSQL 15&#xa;(Trade Promo, QMS,&#xa;Store Ops, Pricing)" style="shape=cylinder3;size=15;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="ds_group">
+          <mxGeometry x="200" y="50" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="db_ora19" value="Oracle 19c&#xa;(MDM, Demand Plan)" style="shape=cylinder3;size=15;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="ds_group">
+          <mxGeometry x="360" y="50" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="db_ora12" value="Oracle 12c ⚠️&#xa;(WMS — Legacy)" style="shape=cylinder3;size=15;whiteSpace=wrap;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="ds_group">
+          <mxGeometry x="520" y="50" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="db_mssql19" value="MS SQL 2019&#xa;(PLM, FP&amp;A)" style="shape=cylinder3;size=15;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="ds_group">
+          <mxGeometry x="680" y="50" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="db_mssql16" value="MS SQL 2016 ⚠️&#xa;(MES — Legacy)" style="shape=cylinder3;size=15;whiteSpace=wrap;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="ds_group">
+          <mxGeometry x="840" y="50" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="db_mssql17" value="MS SQL 2017 ⚠️&#xa;(HR — Legacy)" style="shape=cylinder3;size=15;whiteSpace=wrap;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="ds_group">
+          <mxGeometry x="1000" y="50" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="db_mysql8" value="MySQL 8.0&#xa;(Inventory Opt)" style="shape=cylinder3;size=15;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="ds_group">
+          <mxGeometry x="1160" y="50" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="db_mysql57" value="MySQL 5.7 ⚠️&#xa;(TMS — Legacy)" style="shape=cylinder3;size=15;whiteSpace=wrap;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="ds_group">
+          <mxGeometry x="1320" y="50" width="140" height="80" as="geometry" />
+        </mxCell>
+        <!-- NoSQL -->
+        <mxCell id="db_mongo" value="MongoDB 6.0&#xa;(Loyalty, MDM,&#xa;Procurement)" style="shape=cylinder3;size=15;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="ds_group">
+          <mxGeometry x="40" y="160" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="db_cassandra" value="Cassandra 4.1&#xa;(CDP, Big Data)" style="shape=cylinder3;size=15;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="ds_group">
+          <mxGeometry x="200" y="160" width="140" height="80" as="geometry" />
+        </mxCell>
+        <!-- Cache -->
+        <mxCell id="db_redis" value="Redis 7.x&#xa;(E-Comm, Loyalty,&#xa;QMS, Inventory, Pricing)" style="shape=cylinder3;size=15;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="ds_group">
+          <mxGeometry x="360" y="160" width="160" height="80" as="geometry" />
+        </mxCell>
+        <!-- Search -->
+        <mxCell id="db_es" value="Elasticsearch 8.x&#xa;(CDP, Pricing)" style="shape=cylinder3;size=15;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="ds_group">
+          <mxGeometry x="540" y="160" width="140" height="80" as="geometry" />
+        </mxCell>
+        <!-- Big Data -->
+        <mxCell id="db_hadoop" value="Hadoop 3.3 / HDFS&#xa;(Analytics, Big Data)" style="shape=cylinder3;size=15;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="ds_group">
+          <mxGeometry x="700" y="160" width="160" height="80" as="geometry" />
+        </mxCell>
+        <!-- ===== APPLICATION LAYER ===== -->
+        <!-- Group: Digital Commerce -->
+        <mxCell id="grp_commerce" value="Digital Commerce" style="swimlane;startSize=25;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="500" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="app001" value="APP-001&#xa;E-Commerce Platform&#xa;Java 11 / React 18&#xa;REST API / OAuth 2.0" style="rounded=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="grp_commerce">
+          <mxGeometry x="20" y="40" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="app016" value="APP-016&#xa;Store Operations&#xa;Python 3.11 / FastAPI&#xa;REST API / WebSocket" style="rounded=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="grp_commerce">
+          <mxGeometry x="260" y="40" width="200" height="80" as="geometry" />
+        </mxCell>
+        <!-- Group: Marketing & Customer -->
+        <mxCell id="grp_marketing" value="Marketing &amp; Customer" style="swimlane;startSize=25;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="40" width="500" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="app002" value="APP-002&#xa;Loyalty &amp; Rewards&#xa;Node.js 18&#xa;REST API / Kafka" style="rounded=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="grp_marketing">
+          <mxGeometry x="20" y="40" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="app007" value="APP-007&#xa;Customer Data Platform&#xa;Python 3.11 / Scala&#xa;REST API / gRPC" style="rounded=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="grp_marketing">
+          <mxGeometry x="260" y="40" width="200" height="80" as="geometry" />
+        </mxCell>
+        <!-- Group: Supply Chain & Logistics -->
+        <mxCell id="grp_supply" value="Supply Chain &amp; Logistics" style="swimlane;startSize=25;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="40" width="760" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="app003" value="APP-003&#xa;Demand Planning&#xa;Python 3.10 / R&#xa;REST API / JDBC" style="rounded=1;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="grp_supply">
+          <mxGeometry x="20" y="40" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="app004" value="APP-004&#xa;Warehouse Mgmt ⚠️&#xa;Java 8 (J2EE)&#xa;SOAP / FTP / EDI" style="rounded=1;whiteSpace=wrap;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="grp_supply">
+          <mxGeometry x="200" y="40" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="app009" value="APP-009&#xa;Transport Mgmt ⚠️&#xa;Java 7 (J2EE)&#xa;SOAP / EDI / FTP" style="rounded=1;whiteSpace=wrap;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="grp_supply">
+          <mxGeometry x="380" y="40" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="app012" value="APP-012&#xa;Inventory Optimisation&#xa;Python 3.10 / R&#xa;REST API / SFTP" style="rounded=1;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="grp_supply">
+          <mxGeometry x="560" y="40" width="170" height="80" as="geometry" />
+        </mxCell>
+        <!-- Group: Data & Analytics -->
+        <mxCell id="grp_data" value="Data &amp; Analytics" style="swimlane;startSize=25;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="280" width="760" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="app010" value="APP-010&#xa;Master Data Mgmt&#xa;Java 11 / Angular 15&#xa;REST API / SOAP" style="rounded=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="grp_data">
+          <mxGeometry x="20" y="40" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="app008" value="APP-008&#xa;Retail Analytics&#xa;Python 3.10 / Scala&#xa;JDBC / REST API" style="rounded=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="grp_data">
+          <mxGeometry x="220" y="40" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="app019" value="APP-019&#xa;Big Data Pipeline&#xa;Python 3.11 / Scala&#xa;Kafka / JDBC / REST" style="rounded=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="grp_data">
+          <mxGeometry x="420" y="40" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="app020" value="APP-020&#xa;Pricing Optimisation&#xa;Python 3.11 / Scala&#xa;REST API / gRPC" style="rounded=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="grp_data">
+          <mxGeometry x="560" y="40" width="180" height="80" as="geometry" />
+        </mxCell>
+        <!-- Group: Finance -->
+        <mxCell id="grp_finance" value="Finance" style="swimlane;startSize=25;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="840" y="280" width="500" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="app005" value="APP-005&#xa;Trade Promotion Mgmt&#xa;Java 11 / Angular 14&#xa;REST API / SFTP" style="rounded=1;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#666666;fontSize=10;" vertex="1" parent="grp_finance">
+          <mxGeometry x="20" y="40" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="app011" value="APP-011&#xa;Financial Planning&#xa;Java 11 / Groovy&#xa;JDBC / REST / SFTP" style="rounded=1;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#666666;fontSize=10;" vertex="1" parent="grp_finance">
+          <mxGeometry x="260" y="40" width="200" height="80" as="geometry" />
+        </mxCell>
+        <!-- Group: Product & Manufacturing -->
+        <mxCell id="grp_product" value="Product &amp; Manufacturing" style="swimlane;startSize=25;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1380" y="280" width="500" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="app006" value="APP-006&#xa;Product Lifecycle Mgmt&#xa;.NET 6 / C#&#xa;REST API / SOAP" style="rounded=1;whiteSpace=wrap;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="grp_product">
+          <mxGeometry x="20" y="40" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="app015" value="APP-015&#xa;Manufacturing Exec ⚠️&#xa;VB.NET 4.8 / C#&#xa;SOAP / COM+ / DCOM" style="rounded=1;whiteSpace=wrap;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="grp_product">
+          <mxGeometry x="260" y="40" width="200" height="80" as="geometry" />
+        </mxCell>
+        <!-- Group: Corporate -->
+        <mxCell id="grp_corp" value="Corporate &amp; Support" style="swimlane;startSize=25;fillColor=#f5f5f5;strokeColor=#999999;fontSize=12;fontStyle=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="520" width="760" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="app013" value="APP-013&#xa;Quality Management&#xa;Python 3.11 / Django&#xa;REST API / AMQP" style="rounded=1;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;" vertex="1" parent="grp_corp">
+          <mxGeometry x="20" y="40" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="app014" value="APP-014&#xa;Procurement Portal&#xa;Node.js 20 / React&#xa;REST API / OAuth 2.0" style="rounded=1;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;" vertex="1" parent="grp_corp">
+          <mxGeometry x="210" y="40" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="app017" value="APP-017&#xa;HR &amp; Workforce ⚠️&#xa;ASP.NET 4.8 / C#&#xa;LDAP / SOAP" style="rounded=1;whiteSpace=wrap;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="grp_corp">
+          <mxGeometry x="400" y="40" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="app018" value="APP-018&#xa;Document Management&#xa;Java 11 / Angular&#xa;REST / WebDAV / CMIS" style="rounded=1;whiteSpace=wrap;fillColor=#f5f5f5;strokeColor=#999999;fontSize=10;" vertex="1" parent="grp_corp">
+          <mxGeometry x="590" y="40" width="160" height="80" as="geometry" />
+        </mxCell>
+        <!-- ===== DATA FLOW EDGES (App → Data Store) ===== -->
+        <!-- E-Commerce → PostgreSQL 14, Redis -->
+        <mxCell id="df01" value="R/W" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#9673a6;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app001" target="db_pg14" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="df02" value="Cache" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#d6b656;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app001" target="db_redis" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Loyalty → MongoDB, Redis -->
+        <mxCell id="df03" value="R/W" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#82b366;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app002" target="db_mongo" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="df04" value="Cache" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#d6b656;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app002" target="db_redis" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Demand Planning → Oracle 19c -->
+        <mxCell id="df05" value="R/W" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#9673a6;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app003" target="db_ora19" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- WMS → Oracle 12c -->
+        <mxCell id="df06" value="R/W" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#b85450;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app004" target="db_ora12" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Trade Promo → PostgreSQL 15 -->
+        <mxCell id="df07" value="R/W" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#9673a6;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app005" target="db_pg15" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- PLM → MS SQL 2019 -->
+        <mxCell id="df08" value="R/W" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#9673a6;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app006" target="db_mssql19" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- CDP → Cassandra, Elasticsearch -->
+        <mxCell id="df09" value="R/W" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#82b366;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app007" target="db_cassandra" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="df10" value="Index" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#d6b656;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app007" target="db_es" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Analytics → PostgreSQL 14, Hadoop -->
+        <mxCell id="df11" value="Read" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#9673a6;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app008" target="db_pg14" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="df12" value="R/W" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6c8ebf;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app008" target="db_hadoop" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- TMS → MySQL 5.7 -->
+        <mxCell id="df13" value="R/W" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#b85450;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app009" target="db_mysql57" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- MDM → Oracle 19c, MongoDB -->
+        <mxCell id="df14" value="R/W" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#9673a6;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app010" target="db_ora19" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="df15" value="R/W" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#82b366;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app010" target="db_mongo" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- FP&A → MS SQL 2019 -->
+        <mxCell id="df16" value="R/W" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#9673a6;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app011" target="db_mssql19" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Inventory → MySQL 8, Redis -->
+        <mxCell id="df17" value="R/W" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#9673a6;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app012" target="db_mysql8" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="df18" value="Cache" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#d6b656;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app012" target="db_redis" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- QMS → PostgreSQL 15, Redis -->
+        <mxCell id="df19" value="R/W" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#9673a6;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app013" target="db_pg15" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="df20" value="Cache" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#d6b656;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app013" target="db_redis" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Procurement → MongoDB -->
+        <mxCell id="df21" value="R/W" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#82b366;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app014" target="db_mongo" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- MES → MS SQL 2016 -->
+        <mxCell id="df22" value="R/W" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#b85450;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app015" target="db_mssql16" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Store Ops → PostgreSQL 15, Redis -->
+        <mxCell id="df23" value="R/W" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#9673a6;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app016" target="db_pg15" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="df24" value="Cache" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#d6b656;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app016" target="db_redis" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- HR → MS SQL 2017 -->
+        <mxCell id="df25" value="R/W" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#b85450;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app017" target="db_mssql17" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Doc Mgmt → PostgreSQL 14 -->
+        <mxCell id="df26" value="R/W" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#9673a6;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app018" target="db_pg14" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Big Data Pipeline → Hadoop, Cassandra -->
+        <mxCell id="df27" value="Ingest" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6c8ebf;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app019" target="db_hadoop" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="df28" value="Ingest" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#82b366;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app019" target="db_cassandra" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Pricing → PostgreSQL 15, Elasticsearch, Redis -->
+        <mxCell id="df29" value="R/W" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#9673a6;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app020" target="db_pg15" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="df30" value="Index" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#d6b656;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app020" target="db_es" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="df31" value="Cache" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#d6b656;strokeWidth=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app020" target="db_redis" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- ===== APPLICATION INTEGRATION FLOWS (App → App) ===== -->
+        <!-- E-Commerce integrations -->
+        <mxCell id="af01" value="REST" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#0000FF;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app001" target="app002" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="af02" value="REST" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#0000FF;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app001" target="app005" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="af03" value="REST" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#0000FF;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app001" target="app010" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Loyalty integrations -->
+        <mxCell id="af04" value="Kafka" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#FF6600;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app002" target="app007" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="af05" value="Kafka" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#FF6600;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app002" target="app010" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Demand Planning integrations -->
+        <mxCell id="af06" value="REST" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#0000FF;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app003" target="app004" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="af07" value="REST" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#0000FF;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app003" target="app009" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="af08" value="REST" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#0000FF;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app003" target="app010" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- WMS integrations -->
+        <mxCell id="af09" value="SOAP/EDI" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#990000;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app004" target="app009" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="af10" value="SOAP" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#990000;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app004" target="app012" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Trade Promo integrations -->
+        <mxCell id="af11" value="Kafka" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#FF6600;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app005" target="app010" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="af12" value="REST" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#0000FF;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app005" target="app011" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- PLM integrations -->
+        <mxCell id="af13" value="REST" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#0000FF;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app006" target="app010" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="af14" value="SOAP" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#990000;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app006" target="app012" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="af15" value="SOAP" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#990000;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app006" target="app015" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- CDP integrations -->
+        <mxCell id="af16" value="gRPC" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#009900;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app007" target="app010" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="af17" value="Kafka" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#FF6600;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app007" target="app011" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Analytics integrations -->
+        <mxCell id="af18" value="JDBC" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#666666;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app008" target="app001" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="af19" value="JDBC" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#666666;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app008" target="app002" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="af20" value="JDBC" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#666666;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app008" target="app005" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="af21" value="Spark" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#666666;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app008" target="app007" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- MDM integrations -->
+        <mxCell id="af22" value="Kafka" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#FF6600;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app010" target="app008" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- FP&A integrations -->
+        <mxCell id="af23" value="JDBC" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#666666;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app011" target="app008" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="af24" value="REST" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#0000FF;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app011" target="app010" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Inventory integrations -->
+        <mxCell id="af25" value="REST" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#0000FF;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app012" target="app008" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="af26" value="REST" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#0000FF;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app012" target="app009" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Big Data Pipeline integrations -->
+        <mxCell id="af27" value="Kafka" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#FF6600;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app019" target="app007" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="af28" value="Kafka" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#FF6600;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app019" target="app008" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="af29" value="REST" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#0000FF;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app019" target="app010" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Pricing integrations -->
+        <mxCell id="af30" value="gRPC" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#009900;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app020" target="app001" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="af31" value="Kafka" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#FF6600;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app020" target="app005" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="af32" value="REST" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#0000FF;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app020" target="app008" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Store Ops integrations -->
+        <mxCell id="af33" value="REST" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#0000FF;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app016" target="app001" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="af34" value="REST" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#0000FF;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app016" target="app008" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="af35" value="REST" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#0000FF;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app016" target="app012" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Procurement integrations -->
+        <mxCell id="af36" value="REST" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#0000FF;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app014" target="app010" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="af37" value="REST" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#0000FF;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app014" target="app011" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- QMS integrations -->
+        <mxCell id="af38" value="REST" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#0000FF;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app013" target="app006" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="af39" value="AMQP" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#FF6600;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app013" target="app015" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Doc Mgmt integrations -->
+        <mxCell id="af40" value="REST" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#0000FF;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app018" target="app006" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="af41" value="REST" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#0000FF;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app018" target="app013" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- HR integrations -->
+        <mxCell id="af42" value="SOAP" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#990000;strokeWidth=2;dashed=1;fontSize=9;labelBackgroundColor=#ffffff;" edge="1" source="app017" target="app011" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- ===== LEGEND ===== -->
+        <mxCell id="legend" value="LEGEND" style="swimlane;startSize=25;fillColor=#FFFFFF;strokeColor=#000000;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="40" width="340" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" value="Blue dashed = REST API" style="text;fontSize=10;fillColor=none;strokeColor=none;fontColor=#0000FF;" vertex="1" parent="legend">
+          <mxGeometry x="10" y="30" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" value="Orange dashed = Kafka / AMQP (async)" style="text;fontSize=10;fillColor=none;strokeColor=none;fontColor=#FF6600;" vertex="1" parent="legend">
+          <mxGeometry x="10" y="55" width="250" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" value="Dark red dashed = SOAP / EDI (legacy)" style="text;fontSize=10;fillColor=none;strokeColor=none;fontColor=#990000;" vertex="1" parent="legend">
+          <mxGeometry x="10" y="80" width="250" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4" value="Green dashed = gRPC" style="text;fontSize=10;fillColor=none;strokeColor=none;fontColor=#009900;" vertex="1" parent="legend">
+          <mxGeometry x="10" y="105" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg5" value="Grey dashed = JDBC / Spark (batch)" style="text;fontSize=10;fillColor=none;strokeColor=none;fontColor=#666666;" vertex="1" parent="legend">
+          <mxGeometry x="10" y="130" width="250" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg6" value="Solid lines = Data store R/W flows" style="text;fontSize=10;fillColor=none;strokeColor=none;fontColor=#000000;" vertex="1" parent="legend">
+          <mxGeometry x="10" y="155" width="250" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg7" value="⚠️ Red nodes/cylinders = Legacy (EOL risk)" style="text;fontSize=10;fillColor=none;strokeColor=none;fontColor=#b85450;" vertex="1" parent="legend">
+          <mxGeometry x="10" y="180" width="300" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

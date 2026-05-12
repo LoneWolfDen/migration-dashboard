@@ -1,0 +1,30 @@
+[project]
+name = "migration-dashboard"
+version = "1.0.0"
+description = "AnyCompany AWS Cloud Migration Assessment Dashboard"
+requires-python = ">=3.9"
+dependencies = [
+    "boto3>=1.28.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.2.0",
+    "pytest-cov>=3.0.0",
+]
+agents = [
+    "strands-agents>=0.1.0",
+    "strands-agents-tools>=0.1.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]

@@ -1,0 +1,144 @@
+<mxfile host="app.diagrams.net" modified="2026-05-11T13:22:00.000Z" agent="draw.io" version="21.0.0">
+  <diagram name="Migration Phases &amp; Dependencies" id="migration-erd">
+    <mxGraphModel dx="2000" dy="1600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="1600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- Phase 1: Foundation (Green) -->
+        <mxCell id="phase1" value="PHASE 1: Foundation Services&#xa;(Migrate First — Core Data Layer)" style="swimlane;startSize=40;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;horizontal=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="2320" height="300" as="geometry" />
+        </mxCell>
+        <!-- APP-010: Master Data Management -->
+        <mxCell id="app010" value="APP-010&#xa;Master Data Management&#xa;&#xa;Java 11 / Angular 15&#xa;Oracle 19c / MongoDB 5.0&#xa;Criticality: CRITICAL&#xa;SLA: Tier 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=center;" vertex="1" parent="phase1">
+          <mxGeometry x="80" y="60" width="220" height="120" as="geometry" />
+        </mxCell>
+        <!-- APP-007: Customer Data Platform -->
+        <mxCell id="app007" value="APP-007&#xa;Customer Data Platform&#xa;&#xa;Python 3.11 / Scala 2.13&#xa;Cassandra 4.1 / ES 8.5&#xa;Criticality: CRITICAL&#xa;SLA: Tier 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=center;" vertex="1" parent="phase1">
+          <mxGeometry x="380" y="60" width="220" height="120" as="geometry" />
+        </mxCell>
+        <!-- APP-019: Big Data Ingestion Pipeline -->
+        <mxCell id="app019" value="APP-019&#xa;Big Data Ingestion Pipeline&#xa;&#xa;Python 3.11 / Scala 2.13&#xa;Hadoop 3.3 / Cassandra 4.1&#xa;Criticality: HIGH&#xa;SLA: Tier 2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=center;" vertex="1" parent="phase1">
+          <mxGeometry x="680" y="60" width="220" height="120" as="geometry" />
+        </mxCell>
+        <!-- Phase 2: Core Business (Blue) -->
+        <mxCell id="phase2" value="PHASE 2: Core Business Applications&#xa;(Depends on Foundation)" style="swimlane;startSize=40;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;horizontal=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="380" width="2320" height="300" as="geometry" />
+        </mxCell>
+        <!-- APP-001: E-Commerce Platform -->
+        <mxCell id="app001" value="APP-001&#xa;E-Commerce Platform&#xa;&#xa;Java 11 / React 18&#xa;PostgreSQL 14&#xa;Criticality: CRITICAL&#xa;SLA: Tier 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;" vertex="1" parent="phase2">
+          <mxGeometry x="80" y="60" width="200" height="120" as="geometry" />
+        </mxCell>
+        <!-- APP-002: Loyalty & Rewards -->
+        <mxCell id="app002" value="APP-002&#xa;Loyalty &amp; Rewards Engine&#xa;&#xa;Node.js 18&#xa;MongoDB 6.0&#xa;Criticality: CRITICAL&#xa;SLA: Tier 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;" vertex="1" parent="phase2">
+          <mxGeometry x="340" y="60" width="200" height="120" as="geometry" />
+        </mxCell>
+        <!-- APP-003: Demand Planning -->
+        <mxCell id="app003" value="APP-003&#xa;Demand Planning&#xa;&#xa;Python 3.10 / R 4.2&#xa;Oracle 19c&#xa;Criticality: CRITICAL&#xa;SLA: Tier 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;" vertex="1" parent="phase2">
+          <mxGeometry x="600" y="60" width="200" height="120" as="geometry" />
+        </mxCell>
+        <!-- APP-005: Trade Promotion -->
+        <mxCell id="app005" value="APP-005&#xa;Trade Promotion Mgmt&#xa;&#xa;Java 11 / Angular 14&#xa;PostgreSQL 15&#xa;Criticality: HIGH&#xa;SLA: Tier 2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;" vertex="1" parent="phase2">
+          <mxGeometry x="860" y="60" width="200" height="120" as="geometry" />
+        </mxCell>
+        <!-- APP-008: Retail Analytics -->
+        <mxCell id="app008" value="APP-008&#xa;Retail Analytics&#xa;&#xa;Python 3.10 / Scala 2.12&#xa;PostgreSQL 14 / Hadoop&#xa;Criticality: HIGH&#xa;SLA: Tier 2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;align=center;" vertex="1" parent="phase2">
+          <mxGeometry x="1120" y="60" width="200" height="120" as="geometry" />
+        </mxCell>
+        <!-- Phase 3: Dependent (Yellow) -->
+        <mxCell id="phase3" value="PHASE 3: Dependent Applications&#xa;(Depends on Core)" style="swimlane;startSize=40;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1;horizontal=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="720" width="2320" height="300" as="geometry" />
+        </mxCell>
+        <!-- APP-006: PLM -->
+        <mxCell id="app006" value="APP-006&#xa;Product Lifecycle Mgmt&#xa;&#xa;.NET 6 / C#&#xa;MS SQL 2019&#xa;Criticality: HIGH" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=center;" vertex="1" parent="phase3">
+          <mxGeometry x="40" y="60" width="180" height="110" as="geometry" />
+        </mxCell>
+        <!-- APP-011: FP&A -->
+        <mxCell id="app011" value="APP-011&#xa;Financial Planning&#xa;&#xa;Java 11 / Groovy&#xa;MS SQL 2019&#xa;Criticality: HIGH" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=center;" vertex="1" parent="phase3">
+          <mxGeometry x="250" y="60" width="180" height="110" as="geometry" />
+        </mxCell>
+        <!-- APP-012: Inventory Optimisation -->
+        <mxCell id="app012" value="APP-012&#xa;Inventory Optimisation&#xa;&#xa;Python 3.10 / R 4.2&#xa;MySQL 8.0&#xa;Criticality: HIGH" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=center;" vertex="1" parent="phase3">
+          <mxGeometry x="460" y="60" width="180" height="110" as="geometry" />
+        </mxCell>
+        <!-- APP-013: QMS -->
+        <mxCell id="app013" value="APP-013&#xa;Quality Management&#xa;&#xa;Python 3.11 / Django&#xa;PostgreSQL 15&#xa;Criticality: MEDIUM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=center;" vertex="1" parent="phase3">
+          <mxGeometry x="670" y="60" width="180" height="110" as="geometry" />
+        </mxCell>
+        <!-- APP-014: Procurement -->
+        <mxCell id="app014" value="APP-014&#xa;Procurement Portal&#xa;&#xa;Node.js 20 / React 18&#xa;MongoDB 6.0&#xa;Criticality: MEDIUM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=center;" vertex="1" parent="phase3">
+          <mxGeometry x="880" y="60" width="180" height="110" as="geometry" />
+        </mxCell>
+        <!-- APP-016: Store Ops -->
+        <mxCell id="app016" value="APP-016&#xa;Store Operations&#xa;&#xa;Python 3.11 / FastAPI&#xa;PostgreSQL 15&#xa;Criticality: LOW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=center;" vertex="1" parent="phase3">
+          <mxGeometry x="1090" y="60" width="180" height="110" as="geometry" />
+        </mxCell>
+        <!-- APP-020: Pricing -->
+        <mxCell id="app020" value="APP-020&#xa;Pricing Optimisation&#xa;&#xa;Python 3.11 / Scala&#xa;PostgreSQL 15 / ES 8.6&#xa;Criticality: HIGH" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;align=center;" vertex="1" parent="phase3">
+          <mxGeometry x="1300" y="60" width="180" height="110" as="geometry" />
+        </mxCell>
+        <!-- Phase 4: Legacy/Modernise (Red) -->
+        <mxCell id="phase4" value="PHASE 4: Legacy — Modernise / Replace&#xa;(Refactor Required)" style="swimlane;startSize=40;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1;horizontal=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1060" width="2320" height="300" as="geometry" />
+        </mxCell>
+        <!-- APP-004: WMS -->
+        <mxCell id="app004" value="APP-004&#xa;Warehouse Management&#xa;&#xa;Java 8 (J2EE) ⚠️&#xa;Oracle 12c&#xa;Criticality: HIGH&#xa;7R: REFACTOR" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=center;" vertex="1" parent="phase4">
+          <mxGeometry x="80" y="60" width="200" height="120" as="geometry" />
+        </mxCell>
+        <!-- APP-009: TMS -->
+        <mxCell id="app009" value="APP-009&#xa;Transportation Mgmt&#xa;&#xa;Java 7 (J2EE) ⚠️&#xa;MySQL 5.7&#xa;Criticality: MEDIUM&#xa;7R: REPLACE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=center;" vertex="1" parent="phase4">
+          <mxGeometry x="340" y="60" width="200" height="120" as="geometry" />
+        </mxCell>
+        <!-- APP-015: MES -->
+        <mxCell id="app015" value="APP-015&#xa;Manufacturing Execution&#xa;&#xa;VB.NET 4.8 / C# ⚠️&#xa;MS SQL 2016&#xa;Criticality: HIGH&#xa;7R: REPLATFORM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=center;" vertex="1" parent="phase4">
+          <mxGeometry x="600" y="60" width="200" height="120" as="geometry" />
+        </mxCell>
+        <!-- APP-017: HR -->
+        <mxCell id="app017" value="APP-017&#xa;HR &amp; Workforce&#xa;&#xa;ASP.NET 4.8 / C# ⚠️&#xa;MS SQL 2017&#xa;Criticality: MEDIUM&#xa;7R: REPLACE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=center;" vertex="1" parent="phase4">
+          <mxGeometry x="860" y="60" width="200" height="120" as="geometry" />
+        </mxCell>
+        <!-- APP-018: Doc Mgmt -->
+        <mxCell id="app018" value="APP-018&#xa;Document Management&#xa;&#xa;Java 11 / Angular 15&#xa;PostgreSQL 14&#xa;Criticality: LOW&#xa;7R: RETIRE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=center;" vertex="1" parent="phase4">
+          <mxGeometry x="1120" y="60" width="200" height="120" as="geometry" />
+        </mxCell>
+        <!-- ===== DEPENDENCY EDGES ===== -->
+        <!-- Phase 1 → Phase 2 dependencies -->
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#82b366;strokeWidth=2;" edge="1" source="app010" target="app001" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#82b366;strokeWidth=2;" edge="1" source="app010" target="app005" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#82b366;strokeWidth=2;" edge="1" source="app010" target="app008" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#82b366;strokeWidth=2;" edge="1" source="app007" target="app002" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#82b366;strokeWidth=2;" edge="1" source="app007" target="app008" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#82b366;strokeWidth=2;" edge="1" source="app019" target="app007" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#82b366;strokeWidth=2;" edge="1" source="app019" target="app008" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#82b366;strokeWidth=2;" edge="1" source="app019" target="app010" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Phase 2 internal dependencies -->
+        <mxCell id="e9" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6c8ebf;strokeWidth=1;dashed=1;" edge="1" source="app001" target="app002" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e10" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6c8ebf;strokeWidth=1;dashed=1;" edge="1" source="app001" target="app005" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6c8ebf;strokeWidth=1;dashed=1;" edge="1" source="app008" target="app001" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e12" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6c8ebf;strokeWidth=1;dashed=1;" edge="1" source="app008" target="app002" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e13" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6c8ebf;strokeWidth=1;dashed=1;" edge="1" source="app008" target="app005" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Phase 2 → Phase 3 dependencies -->
+        <mxCell id="e14" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#d6b656;strokeWidth=2;" edge="1" source="app005" target="app011" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e15" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#d6b656;strokeWidth=2;" edge="1" source="app008" target="app011" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e16" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#d6b656;strokeWidth=2;" edge="1" source="app001" target="app016" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e17" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#d6b656;strokeWidth=2;" edge="1" source="app008" target="app016" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e18" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#d6b656;strokeWidth=2;" edge="1" source="app001" target="app020" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e19" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#d6b656;strokeWidth=2;" edge="1" source="app005" target="app020" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e20" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#d6b656;strokeWidth=2;" edge="1" source="app008" target="app020" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e21" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#d6b656;strokeWidth=2;" edge="1" source="app010" target="app006" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e22" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#d6b656;strokeWidth=2;" edge="1" source="app010" target="app014" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e23" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#d6b656;strokeWidth=2;" edge="1" source="app010" target="app011" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Phase 3 → Phase 4 dependencies -->
+        <mxCell id="e24" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#b85450;strokeWidth=2;" edge="1" source="app003" target="app004" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e25" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#b85450;strokeWidth=2;" edge="1" source="app003" target="app009" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e26" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#b85450;strokeWidth=2;" edge="1" source="app004" target="app009" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e27" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#b85450;strokeWidth=2;" edge="1" source="app004" target="app012" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e28" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#b85450;strokeWidth=2;" edge="1" source="app006" target="app015" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e29" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#b85450;strokeWidth=2;" edge="1" source="app012" target="app015" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e30" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#b85450;strokeWidth=2;" edge="1" source="app011" target="app017" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e31" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#b85450;strokeWidth=2;" edge="1" source="app006" target="app018" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e32" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#b85450;strokeWidth=2;" edge="1" source="app013" target="app018" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e33" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#b85450;strokeWidth=2;" edge="1" source="app006" target="app013" parent="1"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

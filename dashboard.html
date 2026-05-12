@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Migration Assessment Dashboard — AnyCompany</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f5f7fa;color:#1a1a2e}
+.header{background:linear-gradient(135deg,#1a1a2e,#16213e);color:#fff;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center}
+.header h1{font-size:1.4rem}
+.nav{display:flex;gap:.5rem;padding:.5rem 2rem;background:#fff;border-bottom:1px solid #e0e0e0;flex-wrap:wrap}
+.nav button{padding:.5rem 1rem;border:1px solid #ddd;border-radius:6px;background:#fff;cursor:pointer;font-size:.85rem;transition:all .2s}
+.nav button.active{background:#1a1a2e;color:#fff;border-color:#1a1a2e}
+.nav button:hover{background:#e8eaf6}
+.content{padding:1.5rem 2rem;max-width:100%}
+.tab{display:none}
+.tab.active{display:block}
+table{width:100%;border-collapse:collapse;font-size:.8rem;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+th{background:#1a1a2e;color:#fff;padding:.6rem .5rem;text-align:left;position:sticky;top:0}
+td{padding:.5rem;border-bottom:1px solid #eee;vertical-align:top;max-width:300px;word-wrap:break-word}
+tr:hover{background:#f0f4ff}
+.phase-badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:.7rem;font-weight:600;color:#fff}
+.phase-0{background:#607d8b}.phase-1{background:#4caf50}.phase-2{background:#2196f3}.phase-3{background:#ff9800}.phase-4{background:#f44336}
+.table-wrap{overflow-x:auto;max-height:70vh;overflow-y:auto}
+/* Chat */
+.chat-toggle{position:fixed;bottom:20px;right:20px;width:56px;height:56px;border-radius:50%;background:#1a1a2e;color:#fff;border:none;font-size:1.5rem;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:1000}
+.chat-panel{position:fixed;bottom:90px;right:20px;width:420px;height:520px;background:#fff;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.2);display:none;flex-direction:column;z-index:1000;overflow:hidden}
+.chat-panel.open{display:flex}
+.chat-header{background:#1a1a2e;color:#fff;padding:.8rem 1rem;font-weight:600;display:flex;justify-content:space-between;align-items:center}
+.chat-messages{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:.5rem}
+.msg{max-width:85%;padding:.6rem .8rem;border-radius:12px;font-size:.85rem;line-height:1.4;word-wrap:break-word}
+.msg.user{background:#1a1a2e;color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+.msg.bot{background:#f0f4ff;color:#1a1a2e;align-self:flex-start;border-bottom-left-radius:4px}
+.chat-input{display:flex;border-top:1px solid #eee;padding:.5rem}
+.chat-input input{flex:1;border:1px solid #ddd;border-radius:20px;padding:.5rem 1rem;font-size:.85rem;outline:none}
+.chat-input input:focus{border-color:#1a1a2e}
+.chat-input button{margin-left:.5rem;background:#1a1a2e;color:#fff;border:none;border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:1rem}
+.loading{opacity:.6;font-style:italic}
+.summary-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:1.5rem}
+.card{background:#fff;border-radius:8px;padding:1.2rem;box-shadow:0 2px 8px rgba(0,0,0,.08);border-left:4px solid #1a1a2e}
+.card h3{font-size:.9rem;color:#666;margin-bottom:.3rem}
+.card .value{font-size:1.8rem;font-weight:700;color:#1a1a2e}
+.card.green{border-left-color:#4caf50}.card.blue{border-left-color:#2196f3}.card.orange{border-left-color:#ff9800}.card.red{border-left-color:#f44336}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>☁️ AnyCompany — Migration Assessment Dashboard</h1>
+  <span style="font-size:.8rem;opacity:.7">Powered by Strands Agents + Bedrock</span>
+</div>
+<div class="nav">
+  <button class="active" onclick="showTab('overview')">Overview</button>
+  <button onclick="showTab('epics')">Epic Plan</button>
+  <button onclick="showTab('resources')">Resource Plan</button>
+  <button onclick="showTab('tracking')">Operational Tracking</button>
+  <button onclick="showTab('nfrs')">NFR Requirements</button>
+  <button onclick="showTab('diagrams')">Diagrams</button>
+</div>
+<div class="content">
+  <!-- OVERVIEW TAB -->
+  <div id="overview" class="tab active">
+    <div class="summary-cards">
+      <div class="card green"><h3>Total Duration</h3><div class="value">37 weeks</div></div>
+      <div class="card blue"><h3>Applications</h3><div class="value">20 apps</div></div>
+      <div class="card orange"><h3>Epics</h3><div class="value">26 epics</div></div>
+      <div class="card red"><h3>Peak Team Size</h3><div class="value">~28 people</div></div>
+      <div class="card green"><h3>Phases</h3><div class="value">5 phases</div></div>
+      <div class="card blue"><h3>NFRs Defined</h3><div class="value">61 NFRs</div></div>
+      <div class="card orange"><h3>Roles</h3><div class="value">18 roles</div></div>
+      <div class="card red"><h3>Cost Savings Target</h3><div class="value">44%</div></div>
+    </div>
+    <h2 style="margin:1rem 0">Phase Timeline</h2>
+    <div id="timeline" style="background:#fff;border-radius:8px;padding:1.5rem;box-shadow:0 2px 8px rgba(0,0,0,.08)">
+      <div style="display:grid;grid-template-columns:repeat(37,1fr);gap:1px;margin-bottom:.5rem">
+        <div style="grid-column:1/5;background:#607d8b;color:#fff;text-align:center;padding:4px;border-radius:4px;font-size:.7rem">Phase 0 (W1-4)</div>
+        <div style="grid-column:5/12;background:#4caf50;color:#fff;text-align:center;padding:4px;border-radius:4px;font-size:.7rem">Phase 1 (W5-11)</div>
+        <div style="grid-column:12/20;background:#2196f3;color:#fff;text-align:center;padding:4px;border-radius:4px;font-size:.7rem">Phase 2 (W12-19)</div>
+        <div style="grid-column:20/27;background:#ff9800;color:#fff;text-align:center;padding:4px;border-radius:4px;font-size:.7rem">Phase 3 (W20-26)</div>
+        <div style="grid-column:27/38;background:#f44336;color:#fff;text-align:center;padding:4px;border-radius:4px;font-size:.7rem">Phase 4 (W27-37)</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(37,1fr);gap:1px;font-size:.65rem;color:#666">
+        <span>W1</span><span></span><span></span><span></span><span>W5</span><span></span><span></span><span></span><span></span><span>W10</span>
+        <span></span><span>W12</span><span></span><span></span><span>W15</span><span></span><span></span><span></span><span></span><span>W20</span>
+        <span></span><span></span><span></span><span></span><span>W25</span><span></span><span>W27</span><span></span><span></span><span>W30</span>
+        <span></span><span></span><span></span><span></span><span>W35</span><span></span><span>W37</span>
+      </div>
+    </div>
+  </div>
+  <!-- EPICS TAB -->
+  <div id="epics" class="tab"><div class="table-wrap"><table id="epics-table"></table></div></div>
+  <!-- RESOURCES TAB -->
+  <div id="resources" class="tab"><div class="table-wrap"><table id="resources-table"></table></div></div>
+  <!-- TRACKING TAB -->
+  <div id="tracking" class="tab"><div class="table-wrap"><table id="tracking-table"></table></div></div>
+  <!-- NFRS TAB -->
+  <div id="nfrs" class="tab"><div class="table-wrap"><table id="nfrs-table"></table></div></div>
+  <!-- DIAGRAMS TAB -->
+  <div id="diagrams" class="tab">
+    <h2 style="margin-bottom:1rem">Architecture & Dependency Diagrams</h2>
+    <p style="margin-bottom:1rem;color:#666">Download these <code>.drawio</code> files and open in <a href="https://app.diagrams.net" target="_blank">draw.io</a> or VS Code with the draw.io extension.</p>
+    <div class="summary-cards">
+      <div class="card green"><h3>Migration Phases & Dependencies</h3><a href="data/migration_dependency_diagram.drawio" download>⬇ Download .drawio</a></div>
+      <div class="card blue"><h3>Data Flow & Application Flow</h3><a href="data/data_flow_diagram.drawio" download>⬇ Download .drawio</a></div>
+      <div class="card orange"><h3>Operational Dependency & Ownership</h3><a href="data/operational_dependency_diagram.drawio" download>⬇ Download .drawio</a></div>
+    </div>
+  </div>
+</div>
+<!-- CHAT AGENT -->
+<button class="chat-toggle" onclick="toggleChat()">💬</button>
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-header"><span>Migration Assistant (Claude)</span><button onclick="toggleChat()" style="background:none;border:none;color:#fff;cursor:pointer;font-size:1.2rem">✕</button></div>
+  <div class="chat-messages" id="chatMessages">
+    <div class="msg bot">Hi! I'm your Migration Assessment Assistant. Ask me about phases, dependencies, resources, NFRs, timelines, or costs.</div>
+  </div>
+  <div class="chat-input">
+    <input id="chatInput" placeholder="Ask about the migration..." onkeydown="if(event.key==='Enter')sendChat()">
+    <button onclick="sendChat()">➤</button>
+  </div>
+</div>
+<script>
+const chatHistory=[];
+function toggleChat(){document.getElementById('chatPanel').classList.toggle('open')}
+async function sendChat(){
+  const input=document.getElementById('chatInput');
+  const msg=input.value.trim();if(!msg)return;
+  input.value='';
+  appendMsg(msg,'user');
+  chatHistory.push({role:'user',content:msg});
+  const loading=appendMsg('Thinking...','bot loading');
+  try{
+    const res=await fetch('chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:msg,history:chatHistory})});
+    const text=await res.text();
+    loading.remove();
+    let reply;
+    try{reply=JSON.parse(text).reply}catch(e){reply='Error: Server returned: '+text.substring(0,100)}
+    appendMsg(reply,'bot');
+    chatHistory.push({role:'assistant',content:reply});
+  }catch(e){loading.remove();appendMsg('Connection error: '+e.message,'bot')}
+}
+function appendMsg(text,cls){
+  const div=document.createElement('div');div.className='msg '+cls;div.textContent=text;
+  document.getElementById('chatMessages').appendChild(div);
+  div.scrollIntoView({behavior:'smooth'});return div;
+}
+// CSV loading
+async function loadCSV(url,tableId){
+  try{
+    const res=await fetch(url);
+    if(!res.ok){
+      document.getElementById(tableId).innerHTML='<tr><td style="color:red;padding:1rem">Failed to load data (HTTP '+res.status+'). URL: '+url+'</td></tr>';
+      return;
+    }
+    const text=await res.text();
+    const lines=text.trim().split('\n');
+    if(lines.length<2){document.getElementById(tableId).innerHTML='<tr><td>No data</td></tr>';return}
+    const headers=parseCSVLine(lines[0]);
+    let html='<thead><tr>'+headers.map(h=>'<th>'+escHtml(h)+'</th>').join('')+'</tr></thead><tbody>';
+    for(let i=1;i<lines.length;i++){
+      const cols=parseCSVLine(lines[i]);
+      html+='<tr>'+cols.map(c=>'<td>'+escHtml(c)+'</td>').join('')+'</tr>';
+    }
+    html+='</tbody>';
+    document.getElementById(tableId).innerHTML=html;
+  }catch(e){
+    document.getElementById(tableId).innerHTML='<tr><td style="color:red;padding:1rem">Error: '+e.message+'</td></tr>';
+  }
+}
+function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function parseCSVLine(line){
+  const result=[];let current='';let inQuotes=false;
+  for(let i=0;i<line.length;i++){
+    if(line[i]==='"'){inQuotes=!inQuotes}
+    else if(line[i]===','&&!inQuotes){result.push(current.trim());current=''}
+    else{current+=line[i]}
+  }
+  result.push(current.trim());return result;
+}
+function showTab(id){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelector('.nav button[onclick*="'+id+'"]').classList.add('active');
+}
+// Load data on page load
+window.addEventListener('DOMContentLoaded',function(){
+  loadCSV('data/migration_epic_plan.csv','epics-table');
+  loadCSV('data/migration_resource_plan.csv','resources-table');
+  loadCSV('data/migration_operational_tracking.csv','tracking-table');
+  loadCSV('data/migration_nfr_requirements.csv','nfrs-table');
+});
+</script>
+</body>
+</html>
